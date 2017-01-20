@@ -11,7 +11,7 @@ LunchCheckController.$inject = ['$scope'];
 function LunchCheckController($scope){
 
 	$scope.message = "";
-	$scope.isItemfound = false;
+	$scope.color="none";
 	
 	$scope.checkItems = function(){
 		var lunchList = $scope.lunchList;
@@ -19,16 +19,16 @@ function LunchCheckController($scope){
 		
 		itemCounter = itemCount(lunchList);
 		if(itemCounter == 0){
-			$scope.isItemfound =false;
+			$scope.color="red";
 			$scope.message = "Please enter data first";
 			return;
 		}
 		if(itemCounter <= 3){
-			$scope.isItemfound = true;
+			$scope.color="green";
 			$scope.message = "Enjoy!";
 			return;
 		}
-		$scope.isItemfound = true;
+		$scope.color="green";
 		$scope.message = "Too much!";
 		return;
 
